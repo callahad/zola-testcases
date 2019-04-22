@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>resize_image test</title>
+</head>
+<body>
+  <h1>image_resize test</h1>
+  <p>Notice how the call to <code>resize_image</code> in the template <em>does not</em> generate the corresponding image, even though the correct filename hash is calculated. Meanwhile, an identically structured call from Markdown content <em>does</em> generate the thumbnail image.
+  <h2>Template Content</h2>
+  <a href="{{ get_url(path="sailboat.png") }}">This is a photo of a sailboat</a>.
+  <img src="{{ resize_image(path="sailboat.png", width=32, height=32, op="fill") }}" />
+  <hr>
+  <h2>Section Content</h2>
+  {{ section.content | safe }}
+</body>
+</html>
